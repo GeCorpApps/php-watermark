@@ -2,7 +2,7 @@
     "name": "ge-corp/php-watermark",
     "description": "Package for overlay watermark image to another image file",
     "type": "library",
-    "license": "GNU Generap Public License v3.0",
+    "license": "GNU Affero General Public License v3.0 only",
     "keywords": ["watermark", "image watermark"],
     "version": "1.0.0",
     "authors": [
