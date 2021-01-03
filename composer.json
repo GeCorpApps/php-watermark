@@ -2,6 +2,7 @@
     "name": "ge-corp/php-watermark",
     "description": "Package for overlay watermark image to another image file",
     "type": "library",
+    "license": "GNU",
     "keywords": ["watermark", "image watermark"],
     "version": "1.0.0",
     "authors": [
