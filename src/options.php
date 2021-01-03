@@ -22,7 +22,7 @@ class Options {
     /**
      * Undocumented function
      *
-     * @param array $pOptions ["margin" => ["left", "right", "top", "bottom", "all"], "position" => Options::RIGHT_BOTTOM, "quality" => 100 ]
+     * @param array $pOptions ["margin" => ["left", "right", "top", "bottom", "all"], "position" => Options::RIGHT_BOTTOM, "quality" => 100]
      * @return void
      */
     public function __construct($pOptions = []): void {
