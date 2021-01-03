@@ -1,6 +1,6 @@
 # php-watermark
 Package for overlay watermark image to another image file
-Example: 
+<br />Example: 
 ```PHP
 $option = [
     "margin" => [ // "margin" => ["left", "right", "top","bottom", "all"]
