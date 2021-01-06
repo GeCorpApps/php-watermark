@@ -1,5 +1,7 @@
 # php-watermark
 Package for overlay watermark image to another image file
+Package is in development mode, you can just test it now, call it with command: <br />
+composer require ge-corp/php-watermark:dev-main
 <br />Example: 
 ```PHP
 use gecorp\phpwatermark\Options;
