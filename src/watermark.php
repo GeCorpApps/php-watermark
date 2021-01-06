@@ -7,12 +7,13 @@
 namespace gecorp\phpwatermark;
 
 use Exception;
+use gecorp\phpwatermark\Options;
 
-class watermark {
+class Watermark {
     
-    private $options;
+    private $options = [];
 
-    function __construct(Options $pOptions): watermark {
+    function __construct(Options $pOptions) {
         $this->options = $pOptions->getOptions();
         return $this;
     }
@@ -98,31 +99,165 @@ class watermark {
                     $destination["y"] = 0;
                 }
                 break;
-            case 1:
-                # code...
+            case 1: // LEFT_CENTER
+                if(array_key_exists("margin", $vOptions)){
+                    if(array_key_exists("top", $vOptions["margin"])){
+                        $destination["y"] = ($pImgHeight / 2) - ($pWImgHeight / 2);
+                        $destination["y"] = $destination["y"] + $vOptions["margin"]["top"];
+                    }
+                    if(array_key_exists("left", $vOptions["margin"])){
+                        $destination["x"] = $vOptions["margin"]["left"];
+                    }
+                    if(array_key_exists("right", $vOptions["margin"])){
+                        $destination["x"] = $pImgWidth - $pWImgWidth;
+                        $destination["x"] = $destination["x"] - $vOptions["margin"]["right"];
+                    }
+                    if(array_key_exists("bottom", $vOptions["margin"])){
+                        $destination["y"] = ($pImgHeight / 2) - ($pWImgHeight / 2);
+                        $destination["y"] = $destination["y"] - $vOptions["margin"]["bottom"];
+                    }
+                    if(array_key_exists("all", $vOptions["margin"])){
+                        $destination["x"] = $vOptions["margin"]["all"];
+                        $destination["y"] = $vOptions["margin"]["all"];
+                    }
+                }else{
+                    $destination["x"] = 0;
+                    $destination["y"] = ($pImgWidth / 2) - ($pWImgHeight / 2);
+                }
                 break;
-            case 2:
-                # code...
+            case 2: // LEFT_BOTTOM
+                if(array_key_exists("margin", $vOptions)){
+                    if(array_key_exists("top", $vOptions["margin"])){
+                        $destination["y"] = $pImgHeight - $pWImgHeight;
+                        $destination["y"] = $destination["y"] + $vOptions["margin"]["top"];
+                    }
+                    if(array_key_exists("left", $vOptions["margin"])){
+                        $destination["x"] = $vOptions["margin"]["left"];
+                    }
+                    if(array_key_exists("right", $vOptions["margin"])){
+                        $destination["x"] = $pImgWidth - $pWImgWidth;
+                        $destination["x"] = $destination["x"] - $vOptions["margin"]["right"];
+                    }
+                    if(array_key_exists("bottom", $vOptions["margin"])){
+                        $destination["y"] = $pImgHeight - $pWImgHeight;
+                        $destination["y"] = $destination["y"] - $vOptions["margin"]["bottom"];
+                    }
+                    if(array_key_exists("all", $vOptions["margin"])){
+                        $destination["x"] = $vOptions["margin"]["all"];
+                        $destination["y"] = $vOptions["margin"]["all"];
+                    }
+                }else{
+                    $destination["x"] = 0;
+                    $destination["y"] = $pImgWidth - $pWImgHeight;
+                }
                 break;
-            case 3:
-                # code...
+            case 3: // RIGHT_TOP
+                if(array_key_exists("margin", $vOptions)){
+                    if(array_key_exists("top", $vOptions["margin"])){
+                        $destination["y"] = $vOptions["margin"]["top"];
+                    }
+                    if(array_key_exists("left", $vOptions["margin"])){
+                        $destination["x"] = $pImgWidth - $pWImgWidth;
+                        $destination["x"] = $destination["x"] + $vOptions["margin"]["left"];
+                    }
+                    if(array_key_exists("right", $vOptions["margin"])){
+                        $destination["x"] = $pImgWidth - $pWImgWidth;
+                        $destination["x"] = $destination["x"] - $vOptions["margin"]["right"];
+                    }
+                    if(array_key_exists("bottom", $vOptions["margin"])){
+                        $destination["y"] = $pImgHeight - $pWImgHeight;
+                        $destination["y"] = $destination["y"] - $vOptions["margin"]["bottom"];
+                    }
+                    if(array_key_exists("all", $vOptions["margin"])){
+                        $destination["x"] = $vOptions["margin"]["all"];
+                        $destination["y"] = $vOptions["margin"]["all"];
+                    }
+                }else{
+                    $destination["x"] = $pImgWidth - $pWImgWidth;
+                    $destination["y"] = 0;
+                }
                 break;
-            case 4:
-                # code...
+            case 4: // RIGHT_CENTER
+                if(array_key_exists("margin", $vOptions)){
+                    if(array_key_exists("top", $vOptions["margin"])){
+                        $destination["y"] = ($pImgHeight / 2) - ($pWImgHeight / 2);
+                        $destination["y"] = $destination["y"] + $vOptions["margin"]["top"];
+                    }
+                    if(array_key_exists("left", $vOptions["margin"])){
+                        $destination["x"] = $pImgWidth - $pWImgWidth;
+                        $destination["x"] = $destination["x"] + $vOptions["margin"]["left"];
+                    }
+                    if(array_key_exists("right", $vOptions["margin"])){
+                        $destination["x"] = $pImgWidth - $pWImgWidth;
+                        $destination["x"] = $destination["x"] - $vOptions["margin"]["right"];
+                    }
+                    if(array_key_exists("bottom", $vOptions["margin"])){
+                        $destination["y"] = ($pImgHeight / 2) - ($pWImgHeight / 2);
+                        $destination["y"] = $destination["y"] - $vOptions["margin"]["bottom"];
+                    }
+                    if(array_key_exists("all", $vOptions["margin"])){
+                        $destination["x"] = $vOptions["margin"]["all"];
+                        $destination["y"] = $vOptions["margin"]["all"];
+                    }
+                }else{
+                    $destination["x"] = $pImgWidth - $pWImgWidth;
+                    $destination["y"] = ($pImgHeight / 2) - ($pWImgHeight / 2);
+                }
                 break;
-            case 5:
-                # code...
+            case 5: // RIGHT_BOTTOM
+                if(array_key_exists("margin", $vOptions)){
+                    if(array_key_exists("top", $vOptions["margin"])){
+                        $destination["y"] = $pImgHeight - $pWImgHeight;
+                        $destination["y"] = $destination["y"] + $vOptions["margin"]["top"];
+                    }
+                    if(array_key_exists("left", $vOptions["margin"])){
+                        $destination["x"] = $pImgWidth - $pWImgWidth;
+                        $destination["x"] = $destination["x"] + $vOptions["margin"]["left"];
+                    }
+                    if(array_key_exists("right", $vOptions["margin"])){
+                        $destination["x"] = $pImgWidth - $pWImgWidth;
+                        $destination["x"] = $destination["x"] - $vOptions["margin"]["right"];
+                    }
+                    if(array_key_exists("bottom", $vOptions["margin"])){
+                        $destination["y"] = $pImgHeight - $pWImgHeight;
+                        $destination["y"] = $destination["y"] - $vOptions["margin"]["bottom"];
+                    }
+                    if(array_key_exists("all", $vOptions["margin"])){
+                        $destination["x"] = $vOptions["margin"]["all"];
+                        $destination["y"] = $vOptions["margin"]["all"];
+                    }
+                }else{
+                    $destination["x"] = $pImgWidth - $pWImgWidth;
+                    $destination["y"] = $pImgHeight - $pWImgHeight;
+                }
                 break;
-            case 6:
-                # code...
+            case 6: // CENTER_TOP
+                if(array_key_exists("margin", $vOptions)){
+                    if(array_key_exists("top", $vOptions["margin"])){
+                        $destination["y"] = $vOptions["margin"]["top"];
+                    }
+                    if(array_key_exists("left", $vOptions["margin"])){
+                        $destination["x"] = ($pImgWidth / 2) - ($pWImgWidth / 2);
+                        $destination["x"] = $destination["x"] + $vOptions["margin"]["left"];
+                    }
+                    if(array_key_exists("right", $vOptions["margin"])){
+                        $destination["x"] = ($pImgWidth / 2) - ($pWImgWidth / 2);
+                        $destination["x"] = $destination["x"] - $vOptions["margin"]["right"];
+                    }
+                    if(array_key_exists("bottom", $vOptions["margin"])){
+                        $destination["y"] = $pImgHeight - $pWImgHeight;
+                        $destination["y"] = $destination["x"] + $vOptions["margin"]["bottom"];
+                    }
+                    if(array_key_exists("all", $vOptions["margin"])){
+                        $destination["x"] = $vOptions["margin"]["all"];
+                        $destination["y"] = $vOptions["margin"]["all"];
+                    }
+                }else{
+                    $destination["x"] = ($pImgWidth / 2) - ($pWImgWidth / 2);
+                    $destination["y"] = 0;
+                }
                 break;
-            case 7:
-                # code...
-                break;
-            case 8:
-                # code...
-                break;
-            case 9: // CENTER_CENTER
+            case 7: // CENTER_CENTER
                 if(array_key_exists("margin", $vOptions)){
                     if(array_key_exists("top", $vOptions["margin"])){
                         $destination["y"] = ($pImgHeight / 2) - ($pWImgHeight / 2);
@@ -149,6 +284,35 @@ class watermark {
                 }else{
                     $destination["x"] = ($pImgWidth / 2) - ($pWImgHeight / 2);
                     $destination["y"] = ($pImgWidth / 2) - ($pWImgHeight / 2);
+                }
+                break;
+            case 8: // CENTER_BOTTOM
+                if(array_key_exists("margin", $vOptions)){
+                    if(array_key_exists("top", $vOptions["margin"])){
+                        $destination["y"] = $pImgWidth - $pWImgHeight;
+                        $destination["y"] = $destination["y"] + $vOptions["margin"]["top"];
+                    }
+                    if(array_key_exists("left", $vOptions["margin"])){
+                        $destination["x"] = ($pImgWidth / 2) - ($pWImgWidth / 2);
+                        $destination["x"] = $destination["x"] + $vOptions["margin"]["left"];
+                    }
+                    if(array_key_exists("right", $vOptions["margin"])){
+                        $destination["x"] = ($pImgWidth / 2) - ($pWImgWidth / 2);
+                        $destination["x"] = $destination["x"] - $vOptions["margin"]["right"];
+                    }
+                    if(array_key_exists("bottom", $vOptions["margin"])){
+                        $destination["y"] = $pImgWidth - $pWImgHeight;
+                        $destination["y"] = $destination["x"] + $vOptions["margin"]["bottom"];
+                    }
+                    if(array_key_exists("all", $vOptions["margin"])){
+                        $destination["x"] = ($pImgWidth / 2) - ($pWImgHeight / 2);
+                        $destination["x"] = $destination["x"] + $vOptions["margin"]["all"];
+                        $destination["y"] = $pImgWidth - $pWImgHeight;
+                        $destination["y"] = $destination["y"] + $vOptions["margin"]["all"];
+                    }
+                }else{
+                    $destination["x"] = ($pImgWidth / 2) - ($pWImgHeight / 2);
+                    $destination["y"] = $pImgWidth - $pWImgHeight;
                 }
                 break;
         }

@@ -8,15 +8,14 @@ namespace gecorp\phpwatermark;
 
 class Options {
     public const LEFT_TOP = 0;
-    public const LEFT_MIDDLE = 1;
+    public const LEFT_CENTER = 1;
     public const LEFT_BOTTOM = 2;
     public const RIGHT_TOP = 3;
-    public const RIGHT_MIDDLE = 4;
+    public const RIGHT_CENTER = 4;
     public const RIGHT_BOTTOM = 5;
     public const CENTER_TOP = 6;
-    public const CENTER_MIDDLE = 7;
+    public const CENTER_CENTER = 7;
     public const CENTER_BOTTOM = 8;
-    public const CENTER_CENTER = 9;
     private $options = [];
 
     /**
@@ -25,7 +24,7 @@ class Options {
      * @param array $pOptions ["margin" => ["left", "right", "top", "bottom", "all"], "position" => Options::RIGHT_BOTTOM, "quality" => 100]
      * @return void
      */
-    public function __construct($pOptions = []): void {
+    public function __construct($pOptions = []) {
         $this->options = $pOptions;
     }
 
