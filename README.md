@@ -7,7 +7,7 @@ composer require ge-corp/php-watermark:dev-main
 use gecorp\phpwatermark\Options;
 use gecorp\phpwatermark\watermark;
 
-$option = [
+$options = [
     "margin" => [ // "margin" => ["left", "right", "top","bottom", "all"]
         "left" => 10, 
         "top" => 10
