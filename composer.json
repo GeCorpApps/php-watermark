@@ -5,6 +5,7 @@
     "license": "GPL-3.0-only",
     "keywords": ["watermark", "image watermark"],
     "version": "1.0.0",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Merab Chik",
