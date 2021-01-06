@@ -4,7 +4,7 @@
     "type": "library",
     "license": "GPL-3.0-only",
     "keywords": ["watermark", "image watermark"],
-    "version": "1.0.0",
+    "version": "1.0.5",
     "minimum-stability": "dev",
     "authors": [
         {
