@@ -283,7 +283,7 @@ class Watermark {
                     }
                 }else{
                     $destination["x"] = ($pImgWidth / 2) - ($pWImgHeight / 2);
-                    $destination["y"] = ($pImgWidth / 2) - ($pWImgHeight / 2);
+                    $destination["y"] = ($pImgHeight / 2) - ($pWImgHeight / 2);
                 }
                 break;
             case 8: // CENTER_BOTTOM
@@ -312,7 +312,7 @@ class Watermark {
                     }
                 }else{
                     $destination["x"] = ($pImgWidth / 2) - ($pWImgHeight / 2);
-                    $destination["y"] = $pImgWidth - $pWImgHeight;
+                    $destination["y"] = $pImgHeight - $pWImgHeight;
                 }
                 break;
         }
