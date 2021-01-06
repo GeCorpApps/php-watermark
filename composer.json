@@ -5,13 +5,13 @@
     "license": "GPL-3.0-only",
     "keywords": ["watermark", "image watermark"],
     "version": "1.0.5",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Merab Chik",
             "email": "merabchik83@gmail.com",
             "homepage": "https://ge-corp.com",
-            "role": "Software Architect"
+            "role": "Software Developer"
         }
     ],
     "require": {
