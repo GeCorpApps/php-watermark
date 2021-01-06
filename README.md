@@ -2,6 +2,9 @@
 Package for overlay watermark image to another image file
 <br />Example: 
 ```PHP
+use gecorp\phpwatermark\Options;
+use gecorp\phpwatermark\watermark;
+
 $option = [
     "margin" => [ // "margin" => ["left", "right", "top","bottom", "all"]
         "left" => 10, 
